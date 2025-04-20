@@ -45,5 +45,11 @@ get("/divide") do
 end
 
 get("/wizard_divide") do
+  @first_num = params.fetch("first_num").to_f
+  @second_num = params.fetch("second_num").to_f
+  if @second_num == 0
+    @result = "Infinity"
+  end
+  @result = @first_num / @second_num
   erb(:div_result)
 end
